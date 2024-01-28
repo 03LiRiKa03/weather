@@ -7,16 +7,9 @@ from kivymd.app import MDApp
 from kivymd.uix.screen import Screen
 from kivymd.uix.textfield import MDTextField
 from kivy.lang import Builder
-
+from kivymd.uix.screen import MDScreen
 
 username_helper = '''
-<MyWidget>:
-    canvas.before:
-        Color:
-            rgb(70, 176, 246) 
-        Rectangle:
-            pos: self.pos
-            size: self.size
             
 MDTextField:
     hint_text: "Місто"
@@ -25,18 +18,34 @@ MDTextField:
     width:800         
     multiline: True
     mode: "fill"
-    fill_color: 0, 0, 0, .4 
+    fill_color: 0, 0, 0, .4
+    icon_right: "magnify"
+    on_text_validate: app.print_text(self.text)   
     
-'''      
+     
+    
+'''   
+  
 
+    
+class MyScreen(MDScreen):
+    def __init__(self, **kwargs):
+        super(MyScreen, self).__init__(**kwargs)
+        self.md_bg_color = (0.29, 1, 1, 1)
+    
+       
 class WeatherApp(MDApp):
     def build(self):
-        search = Screen()
+        search = MyScreen()
         username = Builder.load_string(username_helper)
         search.add_widget(username)
         return search
     
-    
+    def print_text(self, text):
+        on_release: MDApp.print_text("чайнік")
+        print(text)
+
+
     
     
         
