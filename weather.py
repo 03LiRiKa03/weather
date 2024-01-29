@@ -10,7 +10,14 @@ from kivy.lang import Builder
 from kivymd.uix.screen import MDScreen
 
 username_helper = '''
-            
+Image:
+    source: "C:\\Users\\User\\Desktop\\2\\kivy_venv\\sun.JPG" #тут йому щось не нрав
+    size_hint: .1, .1
+    pos_hint: {"center_x": .5, "center_y": .95}Image:
+    source: "C:\\Users\\User\\Desktop\\2\\kivy_venv\\sun.JPG"
+    size_hint: .1, .1
+    pos_hint: {"center_x": .5, "center_y": .95}
+    
 MDTextField:
     hint_text: "Місто"
     pos_hint: {"center_x": 0.5, "center_y": 0.9}        
