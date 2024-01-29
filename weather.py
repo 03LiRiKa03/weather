@@ -6,7 +6,7 @@ from kivymd.uix.screen import Screen
 from kivy.lang import Builder
 from kivymd.uix.screen import MDScreen
 import requests
-
+import ApiApp from api.py
 
 
 
@@ -79,21 +79,10 @@ class WeatherApp(MDApp):
         return search
     
     
-    def get_weather(self, city_name):
-        api_key = "f7921f10dc460b8800faf0500fb1bb48"
-        url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={self.api_key}"
-        response = requests.get(url)
-        x = response.json()
-        print(x)
-        if x["cod"] != "404":
-            pass
+   
     
           
         
-           
-    def search_weather(self):
-        self.get_weather("Delhi")
-    
 
         
     
