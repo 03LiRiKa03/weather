@@ -78,8 +78,8 @@ class WeatherApp(MDApp):
         search.add_widget(username)
         return search
 
-if __name__ == "__main__":
-    WeatherApp().run() 
+
+    
    
     
           
