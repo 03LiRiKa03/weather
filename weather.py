@@ -77,8 +77,9 @@ class WeatherApp(MDApp):
         username = Builder.load_string(username_helper)
         search.add_widget(username)
         return search
-    
-    
+
+if __name__ == "__main__":
+    WeatherApp().run() 
    
     
           
