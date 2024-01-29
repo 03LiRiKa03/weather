@@ -3,10 +3,6 @@ from kivymd.app import MDApp
 from kivymd.uix.screen import Screen
 from kivy.lang import Builder
 from kivymd.uix.screen import MDScreen
-
-
-class MyScreen():
-    pass
     
 class MyScreen(MDScreen):
     def __init__(self, **kwargs):
