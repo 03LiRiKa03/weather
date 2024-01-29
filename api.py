@@ -7,7 +7,7 @@ class ApiApp(MDApp):
             x = response.json()
             print(x)
             if x["cod"] != "404":
-                temperature = round(x['main']["temp"] - 273.15)
+                temperature = round(x['main']["temp"] - 273.15) #в терміналі тут помилка
                 humidity = x["main"]["humidity"]
                 id = str (x["weather"][0]["id"])
                 wind_speed = round(x["wind"]["speed"]*18/5)
