@@ -1,4 +1,5 @@
 <MyScreen>:
+    md_bg_color: 0.29, 1, 1, 1
 
     MDFloatLayout:
         orientation: 'vertical'
@@ -9,11 +10,11 @@
             pos_hint: {"center_x": 0.5, "center_y": 0.9}        
             size_hint_x:None        
             width:800         
-            multiline: True
+            multiline: False
             mode: "fill"
             fill_color: 0, 0, 0, .4
             icon_right: "magnify"
-            on_text_validate: app.print_text(self.text)
+            on_text_validate: app.get_weather(self.text)
     
         Image:
             source: "images//pngimg.com - sun_PNG13434.png"
