@@ -1,32 +1,37 @@
+import json
 import requests
 
 
 API_KEY = "f7921f10dc460b8800faf0500fb1bb48"
 
 
-class ApiApp:
+class WeatherApi:
 
     def get_weather(self, city_name):
 
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_KEY}"
 
         try:
-            response = requests.get(url)
-            x = response.json()
-            print(x)
-            if x["cod"] != "404":
-                temperature = round(x['main']["temp"] - 273.15) #в терміналі тут помилка
-                humidity = x["main"]["humidity"]
-                id = str (x["weather"][0]["id"])
-                wind_speed = round(x["wind"]["speed"]*18/5)
-                # self.root.ids.temperature.text = f"[b]{temperature}[/b]°"
-                # self.root.ids.humidity.text = f"{humidity}%"
-                # self.root.ids.wind_speed.text = f"{wind_speed} km/h"
-                return temperature, humidity, wind_speed
+            get_weather = requests.get(url)
+            status = get_weather.status_code
+            weather_data = json.loads(get_weather.text)
+
+            if status != "404":
+                temperature = round(weather_data['main']["temp"] - 273.15)  # в терміналі тут помилка
+                humidity = weather_data["main"]["humidity"]
+                weather_id = str(weather_data["weather"][0]["id"])
+                wind_speed = round(weather_data["wind"]["speed"]*18/5)
+                return {
+                    'temperature': temperature,
+                    'humidity': humidity,
+                    'weather_id': weather_id,
+                    'wind_speed': wind_speed
+                }
+
             else:
                 print('Місто не знайдено!')
-                return None, None, None
+                return None
         
-        except requests.ConnectionError:
-            print("Немає з'єднання!")
-            return None, None, None
+        except requests.ConnectionError as error:
+            print(f"Немає з'єднання! Помилка: {error}")
+            return None
