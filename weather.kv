@@ -1,7 +1,7 @@
 <MyScreen>:
     md_bg_color: 0.29, 1, 1, 1
 
-    MDFloatLayout:
+    MDBoxLayout:
         orientation: 'vertical'
         size_hint: 0.9, 0.9
        
@@ -33,7 +33,12 @@
             pos_hint: {"center_x": 0.4, "center_y": 0.5}
             size_hint: .1, .1
         MDLabel:
-            id: 219816
+            id: humidity
             text: "80%"
+            pos_hint: {"center_x": 1, "center_y": .1}
+            font_size: "25sp"
+        MDLabel:
+            id: wind_speed
+            text: "0 km/h"
             pos_hint: {"center_x": 1, "center_y": .1}
             font_size: "25sp"

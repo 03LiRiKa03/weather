@@ -13,11 +13,10 @@ class WeatherApi:
 
         try:
             get_weather = requests.get(url)
-            status = get_weather.status_code
             weather_data = json.loads(get_weather.text)
-
-            if status != "404":
-                temperature = round(weather_data['main']["temp"] - 273.15)  # в терміналі тут помилка
+            print(weather_data)
+            if weather_data['cod'] != "404":
+                temperature = round(weather_data['main']["temp"] - 273.15)
                 humidity = weather_data["main"]["humidity"]
                 weather_id = str(weather_data["weather"][0]["id"])
                 wind_speed = round(weather_data["wind"]["speed"]*18/5)
