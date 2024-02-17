@@ -1,38 +1,56 @@
 <MyScreen>:
+    md_bg_color: 0.29, 1, 1, 1
 
     MDFloatLayout:
         orientation: 'vertical'
         size_hint: 0.9, 0.9
-       
+
         MDTextField:
             hint_text: "Місто"
-            pos_hint: {"center_x": 0.5, "center_y": 0.9}        
-            size_hint_x:None        
-            width:800         
-            multiline: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.9}
+            size_hint_x:None
+            width:800
+            multiline: False
             mode: "fill"
             fill_color: 0, 0, 0, .4
             icon_right: "magnify"
-            on_text_validate: app.print_text(self.text)
-    
+            on_text_validate: app.get_weather(self.text)
+
+
         Image:
-            source: "images//pngimg.com - sun_PNG13434.png"
-            size_hint: .2, .2
-            pos_hint: {"center_x": 0.5, "center_y": 0.7}
-        
+            source: "images//temperature.png"
+            size_hint: .1, .1
+            pos_hint: {"center_x": 0.3, "center_y": 0.78}
+
         MDLabel:
             id: temperature
-            text: "[b]40°[/b]" 
+            text: "[b]40°[/b]"
             markup: True
-            pos_hint: {"center_x": 0.5, "center_y": 0.6}
+            pos_hint: {"center_x": 0.35, "center_y": 0.79}
             halign: "center"
-            font_size: "50sp"
+            font_size: "40sp"
         Image:
-            source: "images//219816.png"
-            pos_hint: {"center_x": 0.4, "center_y": 0.5}
+            source: "images//humidity.png"
+            pos_hint: {"center_x": 0.3, "center_y": 0.6}
             size_hint: .1, .1
         MDLabel:
-            id: 219816
-            text: "80%"
-            pos_hint: {"center_x": 1, "center_y": .1}
-            font_size: "25sp"
+            id: humidity
+            text: "[b]80%[/b]"
+            markup: True
+            pos_hint: {"center_x": 0.36, "center_y": 0.6}
+            halign: "center"
+            font_size: "40sp"
+
+        MDLabel:
+            id: wind_speed
+            text: "[b]0 km/h[/b]"
+            markup: True
+            pos_hint: {"center_x": 0.38, "center_y": 0.4}
+            halign: "center"
+            font_size: "40sp"
+
+
+        Image:
+            source: "images//wind.png"
+            pos_hint: {"center_x": 0.3, "center_y": 0.4}
+            size_hint: .1, .1
