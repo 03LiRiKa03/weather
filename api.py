@@ -1,7 +1,7 @@
 import json
 import requests
 
-API_KEY = "f7921f10dc460b8800faf0500fb1bb48"
+API_KEY = "your_API_KEY"
 
 
 class WeatherApi:
